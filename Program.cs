@@ -13,6 +13,8 @@ class Program
     {
         Console.WriteLine("Merhaba BURASI MAIN!");
 
+        #region classMembers
+
 
         /* 
         //ClassMembers classMembers = new ClassMembers(); // Nesne Oluşturuldu
@@ -37,6 +39,9 @@ class Program
         // iç içe oluşturulan sınıfların örneklerinin oluşturulması
         ClassMembers2.nestedClassforClassMembers2 nestedClassforClassMembers2 = new ClassMembers2.nestedClassforClassMembers2();
         */
+        #endregion
+
+        #region ThisKeyword
 
         /*
         ThisKeyword tk1 = new ThisKeyword();
@@ -45,7 +50,7 @@ class Program
         tk1.x(2);
         tk2.x(4);
         */
-
+        #endregion
 
         #region ObjectConcept
         // DEĞER TÜRLÜ DEĞİLSE REFERANS TÜRLÜ DEĞİŞKENDİR
@@ -59,7 +64,6 @@ class Program
             a = 5
         };
         #endregion
-
 
         #region ShallowCopy
         // aynı değeri birden fazla referansçı ile işaretlernir
@@ -82,8 +86,6 @@ class Program
         ShallowAndDeepCopy m2 = m1; // Shallow Copy
         ShallowAndDeepCopy m3 = m1.Clone(); // Deep Copy 
         #endregion
-
-
 
         #region Encapsulation
 
@@ -151,6 +153,147 @@ class Program
 
         #endregion
 
+        #region DeconstructorMethod
+
+        DeconstructorMethod deconstructorMethod = new DeconstructorMethod
+        {
+            Name = "Kadircan",
+            Age = 20
+        };
+
+        var (x,y) = deconstructorMethod;
+        // Console.WriteLine(x);
+        //Console.WriteLine(y);
+
+        #endregion
+
+        #region StaticConst
+
+        // new StaticConst();
+        // new StaticConst();
+        // ilk static çalışır ve ikinci çağırışımızda çalışmaz
+
+        #endregion
+
+        #region  singleton
+
+        //var signleton1 =  Singleton.GetInstance;    
+        //var signleton2 =  Singleton.GetInstance;    
+        //var signleton3 =  Singleton.GetInstance;    
+        //  signleton1.ConnectionString = "asasfafsasf";
+        //  Console.WriteLine(signleton1.ConnectionString);
+        //  Console.WriteLine(signleton2.ConnectionString);
+        //  Console.WriteLine(signleton3.ConnectionString);
+        // iki ve üçüncü için de aynı connectionstring değerini verecektir yani singleton yapısıdır.
+
+
+        #endregion
+
+        #region PositionalRecord
+
+        //PositionalRecord positionalRecord = new PositionalRecord("can", "kelebekcan");
+        //Console.WriteLine(positionalRecord.name);
+        //Console.WriteLine(positionalRecord.surname);
+        //var (name, surname) = positionalRecord;
+        //Console.WriteLine(name);
+        //Console.WriteLine(surname);
+
+        // positinoal record yapısını classlar desteklemez
+        //new PositionalRecord();
+
+        #endregion
+
+        #region Inheritance
+
+        //Inheritence.BMW bmw = new Inheritence.BMW();
+        //bmw.Brand = "BMW";
+        //Inheritence.Tesla tesla = new Inheritence.Tesla();
+        //tesla.BatteryLife = 100;
+
+        //// NAME HIDING VE OBJECTE BAKIŞ 3. DERS
+        //Inheritence.B deneme = new Inheritence.B();
+        //deneme.X = 5;
+        //Console.WriteLine(deneme.X);
+        //Inheritence.D deneme2 = new Inheritence.D();
+        //deneme2.Y();
+
+
+
+
+        #endregion
+
+        #region  virtual | override
+        //VirtualStructures virtualStructures = new VirtualStructures();
+        //VirtualStructures.BaseClass baseClass = new VirtualStructures.BaseClass();
+        //VirtualStructures.DerivedClass derivedClass = new VirtualStructures.DerivedClass();
+        // baseClass.Display();
+        //derivedClass.Display();
+
+        //VirtualStructures.Ucgen ucgen = new VirtualStructures.Ucgen(5, 10); // 25
+        //VirtualStructures.Dikdortgen dikdortgen = new VirtualStructures.Dikdortgen(5, 10); // 50
+        //Console.WriteLine(ucgen.AlanHesapla());
+        //Console.WriteLine(dikdortgen.AlanHesapla());
+
+        #endregion
+
+        #region Polimorfizim
+        //// Polimorfizm kullanarak farklı ödeme türleri tanımlıyoruz.
+        //Polimorfizim.Payment creditCardPayment = new Polimorfizim.CreditCardPayment();
+        //Polimorfizim.Payment cashPayment = new Polimorfizim.CashPayment();
+        //Polimorfizim.Payment bankTransferPayment = new Polimorfizim.BankTransferPayment();
+
+        //// Ödeme işleme sınıfı
+        //var paymentProcessor = new Polimorfizim.PaymentProcessor();
+
+        //// Kredi Kartı ödemesi işleniyor
+        //paymentProcessor.Process(creditCardPayment, 100.00m); // Çıktı: Credit Card payment of $100.00 processed.
+
+        //// Nakit ödemesi işleniyor
+        //paymentProcessor.Process(cashPayment, 50.00m); // Çıktı: Cash payment of $50.00 received.
+
+        //// Havale/EFT ödemesi işleniyor
+        //paymentProcessor.Process(bankTransferPayment, 200.00m); // Çıktı: Bank transfer of $200.00 initiated.
+
+
+
+
+
+        #endregion
+
+        #region SpecialKeywords
+
+        // new SpecialKeywords(10, "can"); // 3 , 2 , 1 olan şeklinde gidip 1 , 2 , 3. olarak çalıştıracak stack mantığı
+        // new SpecialKeywordsDerivedClass();
+
+        #endregion
+
+        #region SealedKeyword
+
+        // new SealedKeyword();
+        // new CSEALED().X();
+        #endregion
+
+        #region PartialStruct
+        // partial altında aynı isimden iki farklı class var ve içerisindeki metotlara ulaşabiliriz.
+        // compiler tek bir yapı varmış gibi davranır
+        //PartialStructers partialStructers = new PartialStructers();
+        //partialStructers.X();
+        //partialStructers.Y();
+        //PartialRecords partialRecords = new PartialRecords()
+        //{
+        //    name = "can",
+        //    surname = "kelebekcan",
+        //    age = 20
+        //};
+        //Console.WriteLine(partialRecords.name); // can veriyor
+
+
+
+        #endregion
+
+        #region Abstraction
+
+        #endregion
 
 
 
