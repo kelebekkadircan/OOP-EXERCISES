@@ -3,10 +3,19 @@
 
 
 
+using MyNameSpace;
+using MyNameSpace2;
 using OOP_EXERCISES;
+using System.ComponentModel;
+using System.Runtime.InteropServices;
+using static OOP_EXERCISES.ClassMembers2;
+using static OOP_EXERCISES.IInterfaces;
 using static OOP_EXERCISES.Records;
 
-class Program
+
+
+
+class  Program
 {
 
     static void Main(string[] args)
@@ -130,6 +139,17 @@ class Program
         // Console.WriteLine(myRecord1.Equals(myRecord2));
         // classlar default olarak referanslarına göre karşılaştırılır. false dönüş yapar
         //Console.WriteLine(myClass1.Equals(myClass2));
+
+        //// RECORDS STRUCTS
+        PositionalRecord2 recordStructs = new PositionalRecord2(5, "can");
+        //recordStructs.a = 10; // readonly olduğu için hata verir.
+        
+        PositionalRecordStructs positionalRecordStructs = new PositionalRecordStructs(20 , "kelebek");
+        positionalRecordStructs.a = 1;
+        positionalRecordStructs.b = "kelebekcan";
+        //// burada record struclara değer atayabiliyoruz çünkü readonly değil.
+
+
 
         #endregion
 
@@ -291,19 +311,135 @@ class Program
 
         #endregion
 
-        #region Abstraction
+        #region AbstractClass
+        //KadirAbstractClass kadir = new KadirAbstractClass();
+        //kadir.Y();
+
+
+        #endregion
+
+        #region Interface
+        // referans türlü değişkenlerdir yani bir referanstırlar
+       // IInterfaces ıfirst = new denemeınterface();
+        // IMyInterface ısecond = new denemeınterface();
+
+        #endregion
+
+        #region Namespace yapısı
+        // kod organizasyonunu sağlaamak için kullanılır
+        // kodu organize ederiz derli toplu olur namespaceler altında toplarız.
+        // namespace herhangi bir cs dosyası içinde tanımlanabilir
+        MyNameSpaceClass myNameSpaceClass = new MyNameSpaceClass();
+        MyNameSpaceClass2 myNameSpaceClass2 = new MyNameSpaceClass2();
+        //// burada namespace sadece bir tane file-scoped namespace izin veriyor hatası alırız
+        //namespace OOP_EXERCISES;
+        //namespace MyNameSpace;
+
+        // farklı dosyalarda tanımlanmış aynı namespaceler compiler tarafından bütün olarak değerlendirilir. !!aynı derecede olmalıdır!!
+        // using ile namespace tanımlanır ve kullanılır. using MyNameSpace; gibi
+        //eğer aynı isimde class vs varsa namespacelere alias atanabilir using my = MyNameSpace; gibi ve my.MyNameSpaceClass şeklinde kullanılır.
+        // 
+
+
+
+        #endregion
+
+        #region Collections
+        //  Collections collections = new Collections();
+
+
+        #endregion
+
+        #region AnonymousTypes
+        // AnonymousTypes anonymousTypes = new AnonymousTypes();
+        //var data = new
+        //{
+        //    Name = "Kadircan",
+        //    Surname = "Kelebek"
+        //};
+        //Console.WriteLine(data.Name);
+        //Console.WriteLine(data.GetType().Name);
+        #endregion
+
+        #region NesnelOperatorler
+        //// null conditional operatörü ?.
+        ClassMembers classMembers = null;
+        if (DateTime.Now.Day == 30)
+            classMembers = new();
+        //if (classMembers is not null )
+        //    classMembers.Yas = 25;
+        // set yaparken hata verir çünkü null olabilir
+       // classMembers?.Yas = 25; 
+        // ?. kullanrak null değilse çalıştır deriz get yaparken kullanılır
+        var memberyasi = classMembers?.Yas; // şeklinde bir değişkene veriyi atarken null conditional kullanılır özellikle nested classlar için verimlidir.
+        //Console.WriteLine(classMembers?.Yas);   
+
+        //// null coalescing operatörü ??=
+        ClassMembers classMembers1 = null;
+        // eğer bu nesne null ise new yapar ve nesneyi oluşturur ??= sayesinde 
+        classMembers1 ??= new();
+
+        //// null operatörü ve nullable
+        // değer türlü değişkenlerin null değeri alabilmesini sağlarlar.
+        int? number1 = null;
+        Nullable<int> number2 = null;
+        //// is operatörü
+        // bir değerin hangi türden olduğunu kontrol eder
+        if (classMembers1.Yas is 25)
+            // Console.WriteLine("yas 25");
+
+
+
+        #endregion
+
+        #region Enumerations
+        // belirli sayısal değerleri sabitleştirilmiş metinsel karşılıklarıyla temsil eden bir türdür.
+        //0 => bekliyor 
+        //1 =>  hazırlanıyor
+        //2 =>  yolda
+        //3 => iptal edildi vs vs
+        OrderStatus.Suspend.Equals(2);
+
+        OrderStatus statu = OrderStatus.Completed;
+        //string statu = OrderStatus.Completed.ToString();
+        //Console.WriteLine(statu);
+        #endregion
+
+
+        #region Struct
+        MyStruct structs = new(); // initialize edilir bu sayede default değerler atanır methodlar ve propertyler çalışır. 
+        structs.X = 5;
+        structs.Y = 10;
+        //Console.WriteLine(structs.MyMethod());
+        // structta yapılır  classların this keywordu readonly iken  structların değildir haliyle kendilerini newleyebilirler.
+        structs.NewStruct();
+        //  Console.WriteLine(structs.MyMethod());
+        // içerisinde static yapıları barındırabilir.
+
+
 
         #endregion
 
 
+        #region StaticBuilds
+        ////StaticBuilds staticBuilds = new();
+        //StaticBuilds staticBuilds = new();
+        //var statikalaninadi = StaticBuilds.StaticField; // erişim direkt class üstünden ondan nesne türetmeden yapılır.
+        //var alaninadi = staticBuilds.NonStaticField;
+        
+        //// Static olduğu için Instance oluşturlamaz
+        //// ctor yasaktır
+        //StaticBuilds2.StaticMethod2();
+        //StaticBuilds3.StaticMethod3();
+     
 
+
+
+        #endregion
     }
-
-
 
 }
 
 
 
-    
-    
+

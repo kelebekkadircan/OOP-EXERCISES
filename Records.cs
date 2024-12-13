@@ -44,5 +44,15 @@ namespace OOP_EXERCISES
         }
 
 
+
     }
+        public record struct PositionalRecordStructs(int a , string b)
+        {
+
+        }
+
+        public record PositionalRecord2(int a , string b)
+        {
+
+        }
 }

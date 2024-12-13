@@ -55,5 +55,11 @@ namespace OOP_EXERCISES
             public int nestedProperty { get; set; }
         }
 
+        public enum OrderStatus
+        {
+            Completed,
+            Failed,
+            Suspend
+        }
     }
 }
